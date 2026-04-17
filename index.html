@@ -265,6 +265,58 @@
     .footer-links a:hover { color: var(--accent); }
     .footer-copy { color: var(--gray2); font-size: .75rem; font-family: var(--fm); }
 
+    /* ── HERO PHOTO ── */
+    .hero-photo-wrap {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 2px solid rgba(0,212,255,0.45);
+      box-shadow: 0 0 0 6px rgba(0,212,255,0.07), 0 0 40px rgba(0,212,255,0.18);
+      margin: 0 auto 1.6rem; overflow: hidden;
+      opacity: 0; animation: fu .8s .35s forwards;
+      background: var(--surface2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo-ph { font-size: 2.6rem; line-height: 1; }
+
+    /* ── FOUNDER ── */
+    .founders-wrap { margin-top: 3.5rem; }
+    .founders-label { font-family: var(--fm); font-size: .72rem; color: var(--accent); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.4rem; }
+    .founder-card {
+      background: var(--surface); border: 1px solid var(--border2); border-radius: 16px;
+      padding: 2rem 2.2rem; display: flex; align-items: flex-start; gap: 1.8rem;
+      max-width: 700px; position: relative; overflow: hidden; transition: border-color .25s, transform .2s;
+    }
+    .founder-card:hover { border-color: rgba(0,212,255,.3); transform: translateY(-3px); }
+    .founder-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,var(--accent),var(--gold)); }
+    .founder-avatar {
+      width: 88px; height: 88px; border-radius: 50%; flex-shrink: 0;
+      border: 2px solid rgba(0,212,255,.35);
+      box-shadow: 0 0 24px rgba(0,212,255,.14);
+      overflow: hidden; background: var(--surface2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .founder-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .founder-avatar-ph { font-size: 2.2rem; }
+    .founder-info { flex: 1; }
+    .founder-role { font-family: var(--fm); font-size: .68rem; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .35rem; }
+    .founder-name { font-family: var(--fh); font-size: 1.35rem; font-weight: 700; margin-bottom: .15rem; }
+    .founder-grade { font-family: var(--fm); font-size: .78rem; color: var(--gray); margin-bottom: .9rem; }
+    .founder-bio { font-size: .88rem; color: var(--gray); line-height: 1.78; }
+
+    /* ── GOOGLE FORM CTA ── */
+    .gform-cta {
+      background: var(--surface); border: 1px solid var(--border2); border-radius: 14px;
+      padding: 2.5rem 2rem; max-width: 600px; margin: 0 auto 2.5rem; text-align: center;
+    }
+    .gform-icon { font-size: 2.4rem; margin-bottom: .9rem; }
+    .gform-cta h3 { font-family: var(--fh); font-size: 1.3rem; font-weight: 700; margin-bottom: .5rem; }
+    .gform-cta p { color: var(--gray); font-size: .9rem; margin-bottom: 1.6rem; line-height: 1.65; }
+    .gform-fields { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center; margin-bottom: 1.8rem; }
+    .gform-field { font-family: var(--fm); font-size: .7rem; color: var(--gray); background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: .3rem .75rem; letter-spacing: .04em; }
+    .contact-alt { color: var(--gray2); font-size: .83rem; margin-top: 1.2rem; }
+    .contact-alt a { color: var(--accent); text-decoration: none; }
+    .contact-alt a:hover { opacity: .75; }
+
     /* ── RESPONSIVE ── */
     @media(max-width:900px){
       .about-grid,.team-grid{grid-template-columns:1fr}
@@ -273,6 +325,7 @@
     }
     @media(max-width:640px){
       nav{padding:0 1.2rem}
+      .founder-card{flex-direction:column;align-items:center;text-align:center}
       .nav-links{display:none}
       .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.5rem;gap:1.1rem;z-index:199}
       .hamburger{display:flex}
@@ -334,6 +387,11 @@
     </div>
     <div class="hero-flags">
       <span class="hflag">🇨🇦</span><span class="hcon">───────</span><span class="hflag">🇯🇵</span>
+    </div>
+    <div class="hero-photo-wrap">
+      <!-- hero-photo.jpg を同ディレクトリに配置してください / Place your photo as hero-photo.jpg in the same folder -->
+      <img class="hero-photo" src="hero-photo.jpg" alt="Akito" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="hero-photo-ph" style="display:none">👤</span>
     </div>
     <h1 class="hero-h1">
       <span class="h1-line1 t-en">Circuit</span>
@@ -500,6 +558,33 @@
         <div class="ach"><span class="ach-icon">🌏</span><div><strong><span class="t-en">International Team</span><span class="t-ja">国際チーム</span></strong><span><span class="t-en">Japanese &amp; Canadian members</span><span class="t-ja">日本人・カナダ人メンバー混成</span></span></div></div>
       </div>
     </div>
+
+    <!-- Founder -->
+    <div class="founders-wrap rv" style="transition-delay:.2s">
+      <p class="founders-label">
+        <span class="t-en">Founder</span><span class="t-ja">ファウンダー</span>
+      </p>
+      <div class="founder-card">
+        <div class="founder-avatar">
+          <!-- akito.jpg を同ディレクトリに配置してください / Place your photo as akito.jpg -->
+          <img src="akito.jpg" alt="Akito" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="founder-avatar-ph" style="display:none">👤</span>
+        </div>
+        <div class="founder-info">
+          <div class="founder-role t-en">Founder &amp; Bridge Builder</div>
+          <div class="founder-role t-ja">ファウンダー・ブリッジビルダー</div>
+          <div class="founder-name">Akito</div>
+          <div class="founder-grade">
+            <span class="t-en">Grade 11 · International Student · Victoria, BC, Canada</span>
+            <span class="t-ja">高校2年生（Grade 11）· 留学生 · カナダ・ビクトリア BC</span>
+          </div>
+          <p class="founder-bio">
+            <span class="t-en blk">At 13, Akito left Japan to study abroad in Victoria, BC — navigating a new country, language, and culture on his own. Through that journey, he discovered FIRST Tech Challenge, led Exsurgo Nova (#30210) to back-to-back 1st place finishes at Victoria Qualifiers, and advanced to the BC Provincial Championship. Now in Grade 11, he bridges both worlds: channeling Japanese curiosity and work ethic into the FTC arena while bringing that same world-class experience back to students in Japan who deserve the same opportunity.</span>
+            <span class="t-ja blk">13歳で単身日本を離れ、カナダ・ビクトリアへと渡ったAkito。新しい国・言語・文化の中で自力で道を切り拓く中でFIRST Tech Challengeに出会い、チームExsurgo Nova (#30210)をビクトリア予選2連覇へと導き、BC州チャンピオンシップにも出場しました。現在、高校2年生（Grade 11）として国境を越えて活動し、日本人としての探究心と粘り強さをFTCの舞台で発揮しながら、同じ機会を求める日本の学生たちへその経験を届けています。</span>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -558,7 +643,7 @@
       <span class="t-ja blk">最初の相談は無料・ノーコミットで大丈夫です。日本語でも英語でも質問に答え、FTCがあなたの学校に合っているかを一緒に考えます。</span>
     </p>
     <div class="steps-row rv">
-      <div class="step-item"><div class="step-num">①</div><p><span class="t-en">Email us — no commitment</span><span class="t-ja">メールで連絡（義務なし）</span></p></div>
+      <div class="step-item"><div class="step-num">①</div><p><span class="t-en">Fill out the form below</span><span class="t-ja">下のフォームに記入</span></p></div>
       <div class="step-arr">→</div>
       <div class="step-item"><div class="step-num">②</div><p><span class="t-en">Free info session (JP available)</span><span class="t-ja">無料説明会（日本語対応）</span></p></div>
       <div class="step-arr">→</div>
@@ -566,15 +651,45 @@
       <div class="step-arr">→</div>
       <div class="step-item"><div class="step-num">④</div><p><span class="t-en">Start building with us!</span><span class="t-ja">一緒にロボットを作ろう！</span></p></div>
     </div>
-    <div class="contact-card rv">
-      <div class="cc-head">// Contact · Circuit Bridge · Exsurgo Nova #30210</div>
-      <div class="cc-row"><span class="cc-icon">📧</span><div><div class="cc-lbl">Email</div><div class="cc-val"><a href="mailto:akito.tmr.lalala@gmail.com">akito.tmr.lalala@gmail.com</a></div></div></div>
-      <div class="cc-row"><span class="cc-icon">🌐</span><div><div class="cc-lbl"><span class="t-en">FIRST Official Website</span><span class="t-ja">FIRST 公式サイト</span></div><div class="cc-val"><a href="https://www.firstinspires.org" target="_blank" rel="noopener">firstinspires.org</a></div></div></div>
-      <div class="cc-row"><span class="cc-icon">🇯🇵</span><div><div class="cc-lbl"><span class="t-en">Japan FTC Community</span><span class="t-ja">日本FTCコミュニティ</span></div><div class="cc-val"><a href="https://sakura-tempesta.or.jp" target="_blank" rel="noopener">sakura-tempesta.or.jp</a></div></div></div>
-      <div class="cc-row"><span class="cc-icon">📍</span><div><div class="cc-lbl"><span class="t-en">Our Base</span><span class="t-ja">チームの拠点</span></div><div class="cc-val">Victoria, British Columbia, Canada</div></div></div>
+    <div class="gform-cta rv">
+      <div class="gform-icon">📋</div>
+      <h3><span class="t-en">Fill Out the Inquiry Form</span><span class="t-ja">お問い合わせフォームに記入</span></h3>
+      <p>
+        <span class="t-en blk">Tell us about your school and interest — we'll get back to you within 3 days in Japanese or English.</span>
+        <span class="t-ja blk">学校名・興味の内容などをご記入ください。3日以内に日本語または英語でご連絡いたします。</span>
+      </p>
+      <div class="gform-fields">
+        <span class="gform-field t-en">Name</span>
+        <span class="gform-field t-en">Email</span>
+        <span class="gform-field t-en">School</span>
+        <span class="gform-field t-en">Prefecture</span>
+        <span class="gform-field t-en">Role</span>
+        <span class="gform-field t-en">Interest</span>
+        <span class="gform-field t-en">Team size</span>
+        <span class="gform-field t-en">Experience</span>
+        <span class="gform-field t-en">English level</span>
+        <span class="gform-field t-en">Message</span>
+        <span class="gform-field t-ja">お名前</span>
+        <span class="gform-field t-ja">メールアドレス</span>
+        <span class="gform-field t-ja">学校名</span>
+        <span class="gform-field t-ja">都道府県</span>
+        <span class="gform-field t-ja">あなたの立場</span>
+        <span class="gform-field t-ja">興味の内容</span>
+        <span class="gform-field t-ja">参加予定の人数</span>
+        <span class="gform-field t-ja">ロボティクス経験</span>
+        <span class="gform-field t-ja">英語レベル</span>
+        <span class="gform-field t-ja">メッセージ</span>
+      </div>
+      <!-- GOOGLE_FORM_URL を create-form.gs 実行後に取得したURLで置き換えてください -->
+      <a href="GOOGLE_FORM_URL" target="_blank" rel="noopener" class="btn-p">
+        <span class="t-en">Open the Form →</span><span class="t-ja">フォームを開く →</span>
+      </a>
+      <p class="contact-alt">
+        <span class="t-en">Prefer email? <a href="mailto:akito.tmr.lalala@gmail.com">akito.tmr.lalala@gmail.com</a></span>
+        <span class="t-ja">メールでのお問い合わせ: <a href="mailto:akito.tmr.lalala@gmail.com">akito.tmr.lalala@gmail.com</a></span>
+      </p>
     </div>
     <div class="cta-actions rv">
-      <a href="mailto:akito.tmr.lalala@gmail.com" class="btn-p"><span class="t-en">Send Us a Message →</span><span class="t-ja">メッセージを送る →</span></a>
       <a href="https://www.firstinspires.org" class="btn-g" target="_blank" rel="noopener"><span class="t-en">Visit FIRST Website</span><span class="t-ja">FIRST 公式サイト</span></a>
     </div>
     <p class="cta-note rv"><span class="t-en">Japanese language support available · No experience required · Free initial consultation</span><span class="t-ja">日本語サポートあり · 経験不要 · 相談無料</span></p>
